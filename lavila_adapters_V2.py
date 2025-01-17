@@ -172,12 +172,12 @@ def CLIP_OPENAI_TIMESFORMER_LARGE_336PX_DISTILBERT_BASE(
     vision_model.fc = nn.Identity()
 
     text_model = DistilBertModel.from_pretrained(
-        'distilbert-base-uncased', force_download=True
+        'distilbert-base-uncased', force_download=False
     )
 
     # Add adapters after each transformer layer within DistilBertModel
-    # for layer in text_model.transformer.layer:
-    #     layer.adapter = Adapter(768, adapter_dim)  # Add adapter to each transformer layer
+    for layer in text_model.transformer.layer:
+        layer.adapter = Adapter(768, adapter_dim)  # Add adapter to each transformer layer
 
     try:
         kwargs.pop('text_use_cls_token')  # ignore args.use_cls_token since DistilBert does not have pooler on top
