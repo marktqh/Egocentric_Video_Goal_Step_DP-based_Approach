@@ -1,0 +1,1 @@
+### This folder should contain the original Lavila model cloned from Meta. Nothing is modified, except the timetransfomer.py file, where an Adapter Class is added. The folder here is for demonstration only
