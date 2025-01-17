@@ -44,6 +44,9 @@ The model is trained using a custom DataLoader (`VideoTextAlignmentDataset`) whi
 ## Inference
 The actual performance of the model will be inferenced by applying an dfs-based alignment technique to utilize the model's fine-tuned similarity score. The alignment score will be r@1 IoU = 0.3: for the top 1 predictions for each action, the percentage of them having IoU over 0.3. The idea of the dfs-based alignment technique is too align video chunks with actions by highest posible similarity scores under severy constraints (constraints are based on the nature of video data and action labels).
 
+## Evaluation Result and More Details
+Our Model can reach the score of r@1 IoU = 0.3 with 31.17 on validation data. For more details, please refer to the project report.
+
 ### Key Files
 - `lavila_adapters_V2.py`: Modified Lavila Dual Encoders (adapters added) for goal step.
 - `train_lavila_adapters_V9_multi.py`: Defines the `VideoTextAlignmentDataset` class for data loading, and defines the main training loop.
